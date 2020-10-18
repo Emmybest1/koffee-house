@@ -1,0 +1,43 @@
+footer {
+    background-color: var(--footerBackgroundColor);
+    color: #fff;
+
+    & h3 {
+        font-family: "Rancho", cursive;
+        font-size: 2em;
+    }
+
+    & > div {
+        margin-bottom: 2em;
+        padding-top: 1em;
+    }
+
+    & form {
+        & .input-wrapper {
+            display: flex;
+            & input {
+                appearance: none;
+                -moz-appearance: none;
+                -moz-appearance: none;
+                height: 30px;
+                border: 0;
+                width: 60%;
+                padding: 0 10px;
+                cursor: text;
+            }
+
+            & input[type="submit"] {
+                width: 20%;
+                background-color: var(--textColorGold);
+                cursor: pointer;
+            }
+        }
+    }
+
+    & .opening-hours-wrapper ul li section {
+        & {
+            border-bottom: double 2px #fff;
+            padding: 1em 0;
+        }
+    }
+}

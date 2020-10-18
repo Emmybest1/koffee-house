@@ -1,0 +1,39 @@
+:root {
+    --textColorGold: #e7bb6a;
+}
+
+header {
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    width: 90%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+    & .container-flex-menu__bar {
+        cursor: pointer;
+
+        & .top,
+        & .bottom {
+            display: block;
+            width: 30px;
+            height: 3px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background-color: #fff;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+    }
+
+    & .logo {
+        width: 50%;
+    }
+
+    & .items-in-cart {
+        color: #fff;
+    }
+}

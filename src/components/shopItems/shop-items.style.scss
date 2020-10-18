@@ -1,0 +1,36 @@
+.shop-items-container {
+
+    & ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 20px auto;
+        margin-top: 70px;
+
+        & li {
+            width: 50%;
+            transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            & section {
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                line-height: 1.6;
+                font-family: "Rancho", cursive;
+
+
+                & img {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+
+}

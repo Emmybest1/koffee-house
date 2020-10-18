@@ -1,0 +1,60 @@
+.menu-items-wrapper {
+    & {
+        width: 80%;
+        position: absolute;
+        z-index: 8;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        height: 100vh;
+        position: fixed;
+        padding-left: 20px;
+        display: none;
+
+        & input[type="search"] {
+            height: 30px;
+            border: 0;
+            width: 100%;
+            padding: 0 10px;
+            box-shadow: -2px 1px 1px 1px #eee;
+        }
+
+        & ul li {
+            font-size: 0.8em;
+            padding: 10px 0;
+            border-bottom: 1px solid #b6b6b6;
+        }
+
+        & .currency-wrapper {
+            padding-top: 30px;
+
+            & h3 {
+                font-family: "Rancho", cursive;
+                padding-bottom: 1em;
+            }
+
+            & > div > div {
+                padding-right: 20px;
+                padding-bottom: 30px;
+            }
+
+            & .container-flex span {
+                font-size: 0.8em;
+
+                & img {
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+    & .cancel-search-wrapper {
+        padding-right: 10px;
+
+        & i {
+            font-size: 1.5em;
+            color: #575757;
+            cursor: pointer;
+        }
+    }
+}
