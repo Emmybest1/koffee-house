@@ -1,4 +1,4 @@
-### How to start up the server on dev mode
+### How to install app packages before proceeding
     run$: npm install
           this will install the missing node packages
      
