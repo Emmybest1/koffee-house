@@ -1,4 +1,4 @@
-import React, { Fragment,useRef } from 'react'
+import React from 'react'
 import PropType from 'prop-types'
 
 import './input.style.scss'

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState,useRef } from 'react'
+import React, { Suspense, lazy, useState } from 'react'
 
 import { useUniqueIds } from '../../hooks/useUniqueIds'
 import './footer.style.scss'
@@ -7,7 +7,6 @@ const Input = lazy(() => import("../../components/input/Input.component"));
 const Section = lazy(() => import("../section/Section.component"));
 
 const Footer = () => {
-    const inputRef = useRef(null);
     const [email, setEmail] = useState("");
     const [emailId, submitBtnId] = useUniqueIds(2);
 
@@ -20,10 +19,6 @@ const Footer = () => {
         e.preventDefault();
         setEmail("");
     };
-
-    const focus = ()=>{
-        inputRef.current.focus()
-    }
     
 
     return (
