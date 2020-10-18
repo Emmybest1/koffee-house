@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react'
+import React, { Suspense, lazy, useState,useRef } from 'react'
 
 import { useUniqueIds } from '../../hooks/useUniqueIds'
 import './footer.style.scss'
@@ -7,6 +7,7 @@ const Input = lazy(() => import("../../components/input/Input.component"));
 const Section = lazy(() => import("../section/Section.component"));
 
 const Footer = () => {
+    const inputRef = useRef(null);
     const [email, setEmail] = useState("");
     const [emailId, submitBtnId] = useUniqueIds(2);
 
@@ -19,6 +20,11 @@ const Footer = () => {
         e.preventDefault();
         setEmail("");
     };
+
+    const focus = ()=>{
+        inputRef.current.focus()
+    }
+    
 
     return (
         <footer className="container">
@@ -93,7 +99,7 @@ const Footer = () => {
                 <form onSubmit={onSubmitHandler} >
                     <h3>News letter</h3>
                     <div className="input-wrapper">
-                        <Input type="email" id={emailId} value={email} onChange={onChangeHandler} placeholder="YOUR EMAIL" />
+                        <Input type="email" id={emailId} value={email} onChange={onChangeHandler} placeholder="YOUR EMAIL" autoFocus={true}/>
                         <Input type="submit" id={submitBtnId} value="Submit" />
                     </div>
                 </form>

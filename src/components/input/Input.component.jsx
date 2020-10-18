@@ -1,21 +1,21 @@
-import React, { Fragment } from 'react'
+import React, { Fragment,useRef } from 'react'
 import PropType from 'prop-types'
 
 import './input.style.scss'
 
 const Input = ({ type, id, textarea, labelText, ...otherProps }) => {
     return (
-        <Fragment>
+         <>
             <label htmlFor={id}>{labelText}</label>
             {
                 !type ? (
-                    <textarea></textarea>
+                <textarea autoFocus={true}>{textarea}</textarea>
                 )
                     : (
-                        <input type={type} id={id} {...otherProps} />
+                        <input type={type} id={id} {...otherProps} autoFocus={true}/>
                     )
             }
-        </Fragment>
+         </>
     )
 };
 
