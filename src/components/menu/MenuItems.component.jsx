@@ -1,4 +1,4 @@
-import React, { lazy, forwardRef, useRef, useImperativeHandle } from "react";
+import React, { forwardRef, useRef, useImperativeHandle } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useUniqueIds } from "../../hooks/useUniqueIds";

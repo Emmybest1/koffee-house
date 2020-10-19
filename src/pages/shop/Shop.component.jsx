@@ -12,11 +12,13 @@ import "./shop.style.scss";
 
 const Shop = () => {
     const coffeeCountRef = useRef(null);
-    const productCount = products.length;
 
     useEffect(() => {
-        const COFFEE_COUNT_REF_INNER_TEXT = coffeeCountRef;
-        console.log(coffeeCountRef.current);
+        console.log(counter);
+        const COFFEE_IN_CLIENT_SIDE = Number(coffeeCountRef.current.innerText);
+        const COFFEE_IN_SERVER_SIDE = Number(products.length);
+        counter(COFFEE_IN_CLIENT_SIDE, COFFEE_IN_SERVER_SIDE);
+        console.log(COFFEE_IN_CLIENT_SIDE, COFFEE_IN_SERVER_SIDE);
     }, []);
 
     return (
@@ -26,7 +28,7 @@ const Shop = () => {
                 <Image src={`${process.env.PUBLIC_URL}/assets/images/shop-bg.jpg`} />
                 <h2>Products</h2>
                 <p className="coffee-count">
-                    We have <span ref={coffeeCountRef}>4</span>
+                    We have <span ref={coffeeCountRef}> {0} </span>
                     types of Coffee
                 </p>
                 <ShopSorting />
