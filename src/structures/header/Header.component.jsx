@@ -1,9 +1,9 @@
-import React, { Fragment, useState, useRef, lazy } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
+import MenuItem from "../../components/menu/MenuItems.component";
 import "./header.style.scss";
 
-const MenuItem = lazy(() => import("../../components/menu/MenuItems.component"));
 const Header = () => {
     const [itemsInCart] = useState(0);
     const menuItemRef = useRef(null);

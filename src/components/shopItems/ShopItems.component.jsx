@@ -1,12 +1,12 @@
-import React, { useState, useEffect, lazy } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 
 import { products } from "../../data/mockup/shop-items.json";
 import "./shop-items.style.scss";
 
-const Section = lazy(() => import("../../structures/section/Section.component"));
-const Li = lazy(() => import("../li/Li.component"));
-const Image = lazy(() => import("../image/Image.component"));
+import Section from "../../structures/section/Section.component";
+import Li from "../li/Li.component";
+import Image from "../image/Image.component";
 
 const ShopItems = (props) => {
     const [product, setProduct] = useState([]);

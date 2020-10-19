@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import { useUniqueIds } from "../../hooks/useUniqueIds";
 import "./menu-items.style.scss";
 
-const Input = lazy(() => import("../input/Input.component"));
-const Image = lazy(() => import("../image/Image.component"));
+import Input from "../input/Input.component";
+import Image from "../image/Image.component";
 
 const MenuItems = forwardRef((prop, ref) => {
     const [searchInputId] = useUniqueIds(1);

@@ -1,10 +1,10 @@
-import React, { lazy, useState } from "react";
+import React, { useState } from "react";
 
 import { useUniqueIds } from "../../hooks/useUniqueIds";
 import "./footer.style.scss";
 
-const Input = lazy(() => import("../../components/input/Input.component"));
-const Section = lazy(() => import("../section/Section.component"));
+import Input from "../../components/input/Input.component";
+import Section from "../section/Section.component";
 
 const Footer = () => {
     const [email, setEmail] = useState("");

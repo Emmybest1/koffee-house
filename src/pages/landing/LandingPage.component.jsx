@@ -1,15 +1,14 @@
-import React, { lazy } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
+import Header from "../../structures/header/Header.component";
+import Main from "../../structures/main/Main.component";
+import Section from "../../structures/section/Section.component";
+import Button from "../../components/button/Button.component";
+import Image from "../../components/image/Image.component";
+import Li from "../../components/li/Li.component";
+import Footer from "../../structures/footer/Footer.component";
 import "./landing-page.style.scss";
-
-const Header = lazy(() => import("../../structures/header/Header.component"));
-const Main = lazy(() => import("../../structures/main/Main.component"));
-const Section = lazy(() => import("../../structures/section/Section.component"));
-const Button = lazy(() => import("../../components/button/Button.component"));
-const Image = lazy(() => import("../../components/image/Image.component"));
-const Li = lazy(() => import("../../components/li/Li.component"));
-const Footer = lazy(() => import("../../structures/footer/Footer.component"));
 
 const LandingPage = () => {
     return (
