@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import ErrorBoundary from "./pages/error-boundary/ErrorBoundary.component";
 import "./app.style.scss";
 
 const LandingPage = lazy(() => import("./pages/landing/LandingPage.component"));
@@ -11,14 +12,16 @@ const NotFound = lazy(() => import("./pages/notfound/NotFound.component"));
 const App = () => {
     return (
         <Router>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Switch>
-                    <Route exact path="/" component={LandingPage} />
-                    <Route exact path="/shop" component={Shop} />
-                    <Route exact path="/product/:productId" component={Product} />
-                    <Route component={NotFound} />
-                </Switch>
-            </Suspense>
+            <ErrorBoundary>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Switch>
+                        <Route exact path="/" component={LandingPage} />
+                        <Route exact path="/shop" component={Shop} />
+                        <Route exact path="/product/:productId" component={Product} />
+                        <Route component={NotFound} />
+                    </Switch>
+                </Suspense>
+            </ErrorBoundary>
         </Router>
     );
 };

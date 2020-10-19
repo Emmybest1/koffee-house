@@ -1,16 +1,17 @@
-import React from 'react'
-import PropType from 'prop-types'
-
+import React from "react";
+import PropType from "prop-types";
 
 const Section = ({ className, children, ...otherProps }) => {
     return (
-        <section className={className} {...otherProps}>{children}</section>
-    )
-}
+        <section className={className} {...otherProps}>
+            {children}
+        </section>
+    );
+};
 
 Section.propType = {
     className: PropType.string,
-    children: PropType.node.isRequired
-}
+    children: PropType.node.isRequired,
+};
 
-export default Section
+export default Section;

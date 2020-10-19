@@ -1,27 +1,24 @@
-import React from 'react'
-import PropType from 'prop-types'
+import React from "react";
+import PropType from "prop-types";
 
-import './input.style.scss'
+import "./input.style.scss";
 
 const Input = ({ type, id, textarea, labelText, ...otherProps }) => {
     return (
-         <>
+        <>
             <label htmlFor={id}>{labelText}</label>
-            {
-                !type ? (
+            {!type ? (
                 <textarea autoFocus={true}>{textarea}</textarea>
-                )
-                    : (
-                        <input type={type} id={id} {...otherProps} autoFocus={true}/>
-                    )
-            }
-         </>
-    )
+            ) : (
+                <input type={type} id={id} {...otherProps} autoFocus={true} />
+            )}
+        </>
+    );
 };
 
 Input.defaultProps = {
-    type: "text"
-}
+    type: "text",
+};
 
 Input.propType = {
     type: PropType.string,
@@ -29,8 +26,8 @@ Input.propType = {
     labelText: PropType.string,
     otherProps: PropType.shape({
         onChange: PropType.func.isRequired,
-        onSubmit: PropType.func
-    })
-}
+        onSubmit: PropType.func,
+    }),
+};
 
 export default Input;
