@@ -48,7 +48,7 @@ const LandingPage = () => {
                     </div>
                 </div>
 
-                <Section>
+                <Section className="img-description-container">
                     <Image
                         src={`${process.env.PUBLIC_URL}/assets/images/img-1_1000X.jpg`}
                         className="img__description"

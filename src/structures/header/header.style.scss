@@ -36,4 +36,9 @@ header {
     & .items-in-cart {
         color: #fff;
     }
+    & .logo {
+        @media (min-width: 768px) {
+            width: 200px;
+        }
+    }
 }
