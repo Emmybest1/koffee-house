@@ -70,14 +70,15 @@ const Product = (props) => {
                                         <p className="price">Price: {product.price}</p>
                                         <div className="quantity-wrapper">
                                             <Button
-                                                buttonText="-"
                                                 onClick={() => setQuantity(--quantity)}
-                                            ></Button>
+                                                disabled={quantity < 2}
+                                            >
+                                                <i class="fa fa-minus"></i>
+                                            </Button>
                                             <p>{quantity}</p>
-                                            <Button
-                                                buttonText="+"
-                                                onClick={() => setQuantity(++quantity)}
-                                            ></Button>
+                                            <Button onClick={() => setQuantity(++quantity)}>
+                                                <i class="fas fa-plus"></i>
+                                            </Button>
                                         </div>
                                     </Section>
                                     <Link to="/cart" className="add-to-cart-btn">
