@@ -22,7 +22,7 @@ const Shop = () => {
     }, []);
 
     return (
-        <div>
+        <>
             <Header />
             <Main>
                 <Image src={`${process.env.PUBLIC_URL}/assets/images/shop-bg.jpg`} />
@@ -35,7 +35,7 @@ const Shop = () => {
                 <ShopItems />
             </Main>
             <Footer />
-        </div>
+        </>
     );
 };
 
