@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import SubscriptionModal from "./components/windows/modal/subscription/Subscription.component";
 import ErrorBoundary from "./pages/error-boundary/ErrorBoundary.component";
 import "./app.style.scss";
 
@@ -18,6 +19,7 @@ const App = () => {
                         <Route exact path="/" component={LandingPage} />
                         <Route exact path="/shop" component={Shop} />
                         <Route exact path="/product/:productId" component={Product} />
+                        <Route exact path="/sub" component={SubscriptionModal} />
                         <Route component={NotFound} />
                     </Switch>
                 </Suspense>

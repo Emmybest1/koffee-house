@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
+import SubscriptionModal from "../../components/windows/modal/subscription/Subscription.component";
 import Header from "../../structures/header/Header.component";
 import Section from "../../structures/section/Section.component";
 import Image from "../../components/image/Image.component";
@@ -11,12 +12,28 @@ import "./product.style.scss";
 
 const Product = (props) => {
     const [product, setProduct] = useState([]);
+    const subModalContainerRef = useRef(null);
 
+    //update state
     useEffect(() => {
         getRequestt(products).then((res) => {
             setProduct(res);
         });
     }, []);
+
+    //popup subscription modal
+    useEffect(() => {
+        let showTimeOut;
+        showTimeOut = setTimeout(() => {
+            subModalContainerRef.current.style.display = "block";
+        }, 5000);
+
+        return () => {
+            clearTimeout(showTimeOut);
+        };
+    });
+
+    //get product_id
     const productId = props.match.params.productId;
 
     return product.length ? (
@@ -43,11 +60,16 @@ const Product = (props) => {
                                     </p>
                                 </Section>
                                 <Link to="/cart" className="add-to-cart-btn">
-                                    <i class="fa fa-cart-plus"></i> Add to Cart
+                                    <i className="fa fa-cart-plus"></i> Add to Cart
                                 </Link>
                             </li>
                         ))}
                 </ul>
+            </div>
+
+            {/* Subscribe modal */}
+            <div className="sub-modal-container" ref={subModalContainerRef}>
+                <SubscriptionModal />
             </div>
         </>
     ) : (
