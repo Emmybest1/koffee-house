@@ -13,19 +13,25 @@ const ShopSorting = () => {
     };
     return (
         <div className="shop-filter-wrapper">
-            <SelectOption name="showSort" id={showSortId} onChange={onChangeHandler}>
-                <option value="8">8</option>
-                <option value="10">10</option>
-                <option value="12">12</option>
-                <option value="14">14</option>
-            </SelectOption>
+            <div>
+                <p>Sort By Id:</p>
+                <SelectOption name="showSort" id={showSortId} onChange={onChangeHandler}>
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                </SelectOption>
+            </div>
 
-            <SelectOption name="sortBy" id={sortById} onChange={onChangeHandler}>
-                <option value="Low price">Low price</option>
-                <option value="High price">High price</option>
-                <option value="A-Z">A-Z</option>
-                <option value="Z-A">Z-A</option>
-            </SelectOption>
+            <div>
+                <p>Sort By Price:</p>
+                <SelectOption name="sortBy" id={sortById} onChange={onChangeHandler}>
+                    <option value="Low price">Low price</option>
+                    <option value="High price">High price</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
+                </SelectOption>
+            </div>
         </div>
     );
 };
