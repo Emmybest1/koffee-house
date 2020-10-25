@@ -1,10 +1,11 @@
 import React, { Fragment, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import MenuItem from "../../components/menu/MenuItems.component";
 import "./header.style.scss";
 
-const Header = () => {
+const Header = ({ className }) => {
     const [itemsInCart] = useState(0);
     const menuItemRef = useRef(null);
 
@@ -14,7 +15,7 @@ const Header = () => {
 
     return (
         <Fragment>
-            <header className="container-flex">
+            <header className={`container-flex ${className}`}>
                 <div className="container-flex-menu__bar" onClick={openMenuItems}>
                     <span className="top"></span>
                     <span className="bottom"></span>
@@ -28,9 +29,11 @@ const Header = () => {
                     <i className="fa fa-shopping-cart"></i> {itemsInCart}
                 </NavLink>
             </header>
-
             <MenuItem ref={menuItemRef} />
         </Fragment>
     );
+};
+Header.propTypes = {
+    className: PropTypes.string,
 };
 export default Header;
