@@ -22,9 +22,11 @@ const Product = (props) => {
     //update state
     useEffect(() => {
         getRequestt(products).then((res) => {
-            setProduct(res);
+            res.filter((res) => {
+                return res.id === props.match.params.productId;
+            }).map((res) => setProduct([res]));
         });
-    }, []);
+    }, [props.match.params.productId]);
 
     //popup subscription modal
     useEffect(() => {
@@ -36,10 +38,7 @@ const Product = (props) => {
         return () => {
             clearTimeout(showTimeOut);
         };
-    });
-
-    //get product_id
-    const productId = props.match.params.productId;
+    }, []);
 
     return product.length ? (
         <>
@@ -47,45 +46,40 @@ const Product = (props) => {
             <Main>
                 <div className="container shop-items-container">
                     <ul className="product-container">
-                        {product
-                            .filter((product) => {
-                                return product.id.toString() === productId.toString();
-                            })
-                            .map((product) => (
-                                <li key={product.id}>
-                                    <Section>
-                                        <Image src={product.image} />
+                        {product.map((product) => (
+                            <li key={product.id}>
+                                <Section>
+                                    <Image src={product.image} />
 
-                                        <h3>{product.name}</h3>
-                                        <p>Summary: {product.description}</p>
-                                        <p className="desc">
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                                            elit. Voluptatem, consectetur! Provident mollitia
-                                            laborum facilis sunt? Ab nam rerum, harum at nemo quas
-                                            doloribus culpa vel expedita maxime repudiandae numquam!
-                                            Quasi facere blanditiis officia repellat, cupiditate
-                                            amet fuga fugiat praesentium
-                                        </p>
+                                    <h3>{product.name}</h3>
+                                    <p>Summary: {product.description}</p>
+                                    <p className="desc">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                        Voluptatem, consectetur! Provident mollitia laborum facilis
+                                        sunt? Ab nam rerum, harum at nemo quas doloribus culpa vel
+                                        expedita maxime repudiandae numquam! Quasi facere blanditiis
+                                        officia repellat, cupiditate amet fuga fugiat praesentium
+                                    </p>
 
-                                        <p className="price">Price: {product.price}</p>
-                                        <div className="quantity-wrapper">
-                                            <Button
-                                                onClick={() => setQuantity(--quantity)}
-                                                disabled={quantity < 2}
-                                            >
-                                                <i class="fa fa-minus"></i>
-                                            </Button>
-                                            <p>{quantity}</p>
-                                            <Button onClick={() => setQuantity(++quantity)}>
-                                                <i class="fas fa-plus"></i>
-                                            </Button>
-                                        </div>
-                                    </Section>
-                                    <Link to="/cart" className="add-to-cart-btn">
-                                        <i className="fa fa-cart-plus"></i> Add to Cart
-                                    </Link>
-                                </li>
-                            ))}
+                                    <p className="price">Price: {product.price}</p>
+                                    <div className="quantity-wrapper">
+                                        <Button
+                                            onClick={() => setQuantity(--quantity)}
+                                            disabled={quantity < 2}
+                                        >
+                                            <i className="fa fa-minus"></i>
+                                        </Button>
+                                        <p>{quantity}</p>
+                                        <Button onClick={() => setQuantity(++quantity)}>
+                                            <i className="fas fa-plus"></i>
+                                        </Button>
+                                    </div>
+                                </Section>
+                                <Link to="/cart" className="add-to-cart-btn">
+                                    <i className="fa fa-cart-plus"></i> Add to Cart
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
 

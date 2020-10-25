@@ -20,7 +20,7 @@ const LandingPage = () => {
                         <div className="button-wrapper">
                             <h3>Get Up,Get Coffee,Be Happy</h3>
                             <Button>
-                                <Link to="/booking" className="link">
+                                <Link to="/shop" className="link">
                                     Book
                                 </Link>
                             </Button>
