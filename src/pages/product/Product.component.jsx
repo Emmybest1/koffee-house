@@ -3,16 +3,20 @@ import { Link } from "react-router-dom";
 
 import SubscriptionModal from "../../components/windows/modal/subscription/Subscription.component";
 import Header from "../../structures/header/Header.component";
+import Main from "../../structures/main/Main.component";
 import Section from "../../structures/section/Section.component";
 import Image from "../../components/image/Image.component";
+import Button from "../../components/button/Button.component";
 import { getRequestt } from "../../data/helpers/httpHelper";
 import { products } from "../../data/mockup/shop-items.json";
-import Main from "../../structures/main/Main.component";
+
 import "../../components/shopItems/shop-items.style.scss";
 import "./product.style.scss";
 
 const Product = (props) => {
+    // const [productCollection, setProductCollection] = useState([{}]);
     const [product, setProduct] = useState([]);
+    let [quantity, setQuantity] = useState(1);
     const subModalContainerRef = useRef(null);
 
     //update state
@@ -51,6 +55,7 @@ const Product = (props) => {
                                 <li key={product.id}>
                                     <Section>
                                         <Image src={product.image} />
+
                                         <h3>{product.name}</h3>
                                         <p>Summary: {product.description}</p>
                                         <p className="desc">
@@ -61,6 +66,19 @@ const Product = (props) => {
                                             Quasi facere blanditiis officia repellat, cupiditate
                                             amet fuga fugiat praesentium
                                         </p>
+
+                                        <p className="price">Price: {product.price}</p>
+                                        <div className="quantity-wrapper">
+                                            <Button
+                                                buttonText="-"
+                                                onClick={() => setQuantity(--quantity)}
+                                            ></Button>
+                                            <p>{quantity}</p>
+                                            <Button
+                                                buttonText="+"
+                                                onClick={() => setQuantity(++quantity)}
+                                            ></Button>
+                                        </div>
                                     </Section>
                                     <Link to="/cart" className="add-to-cart-btn">
                                         <i className="fa fa-cart-plus"></i> Add to Cart

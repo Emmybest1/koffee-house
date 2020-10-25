@@ -37,6 +37,27 @@
                 text-align: center;
                 padding: 4px 10px;
             }
+
+            & .quantity-wrapper {
+                display: flex;
+                background-color: var(--footerBackgroundColor);
+                height: 30px;
+                justify-content: space-between;
+                align-content: center;
+                align-items: center;
+                padding: 10px;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+
+                & > p,
+                & > button {
+                    background-color: var(--textColorGold);
+                    width: 30%;
+                    text-align: center;
+                    border: solid 1px #000;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
