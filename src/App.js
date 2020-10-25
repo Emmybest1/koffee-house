@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import SubscriptionModal from "./components/windows/modal/subscription/Subscription.component";
@@ -14,6 +14,9 @@ const App = () => {
     return (
         <Router>
             <ErrorBoundary>
+                {useEffect(() => {
+                    window.scrollTo(0, 0);
+                }, [])}
                 <Suspense fallback={<div>Loading...</div>}>
                     <Switch>
                         <Route exact path="/" component={LandingPage} />
