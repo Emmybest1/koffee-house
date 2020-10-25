@@ -28,9 +28,12 @@ header {
             cursor: pointer;
         }
     }
-
-    & .logo {
+    & .logo-wrapper {
         width: 50%;
+        & .logo {
+            width: 100%;
+            margin: 0 auto;
+        }
     }
 
     & .items-in-cart {
