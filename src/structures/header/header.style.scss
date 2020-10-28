@@ -31,7 +31,7 @@ header {
     & .logo-wrapper {
         width: 50%;
         & .logo {
-            width: 100%;
+            width: 50%;
             margin: 0 auto;
         }
     }
@@ -41,7 +41,6 @@ header {
     }
     & .logo {
         @media (min-width: 768px) {
-            width: 200px;
         }
     }
 }
