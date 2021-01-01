@@ -24,7 +24,7 @@ const Loader = ({isLoading}) => {
       clearTimeout(timeout);
       setShouldDisplayLoader(false);
     };
-  }, [isLoading]);
+  }, [isLoading, shouldDisplayLoader]);
 
   /***
    * @useEffect : this checks if loading is done

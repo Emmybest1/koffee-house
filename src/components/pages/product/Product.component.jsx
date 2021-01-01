@@ -9,12 +9,13 @@ import SubscriptionModal from '../../partials/modals/subscription/Subscription.c
 import Header from '../../structures/header/Header.component';
 import Main from '../../structures/main/Main.component';
 import Button from '../../partials/button/Button.component';
-import '../../partials/shopItems/shop-items.style.scss';
+
 import './product.style.scss';
 
 const Product = ({match}) => {
   const [shouldMountSubscriptionModal, setShouldMountSubscriptionModal] = useState(false);
-  let [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
+
   const dispatch = useDispatch();
   const productFetchingIsLoading = useSelector((state) => state.product.isLoading);
   const productFetchingError = useSelector((state) => state.product.error);
@@ -22,7 +23,7 @@ const Product = ({match}) => {
 
   useEffect(() => {
     dispatch(fetchProductRequest(match.params.productId));
-  }, [match.params.productId]);
+  }, [match.params.productId, dispatch]);
 
   useEffect(() => {
     let timeout;
@@ -34,7 +35,7 @@ const Product = ({match}) => {
     };
   }, []);
 
-  return Object.entries(product).length ? (
+  return product && Object.entries(product).length ? (
     <>
       <Header className="container product-component-header" itemsInCart={1} />
       <Main>
@@ -50,9 +51,9 @@ const Product = ({match}) => {
                   laborum facilis sunt? Ab nam rerum, harum at nemo quas doloribus culpa vel expedita maxime repudiandae
                   numquam! Quasi facere blanditiis officia repellat, cupiditate amet fuga fugiat praesentium
                 </p>
-                <p className="price">Price: {product.price * quantity}</p>
+                <p className="price">Price:$ {product.price * quantity}</p>
                 <div className="quantity-wrapper">
-                  <Button onClick={() => setQuantity(--quantity)} disabled={quantity < 2}>
+                  <Button onClick={() => setQuantity((quantity) => --quantity)} disabled={quantity < 2}>
                     <i className="fa fa-minus"></i>
                   </Button>
                   <p className="quantity">{quantity}</p>

@@ -1,36 +1,43 @@
 .shop-items-container {
-    & ul {
-        display: flex;
-        flex-wrap: wrap;
+  & ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 70px;
+
+    & li {
+      background-color: #fff;
+      border: solid #eee 1px;
+      cursor: pointer;
+      width: 50%;
+      height: 350px;
+      margin: 40px auto;
+      padding-top: 10px;
+      transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      & section {
         width: 100%;
-        margin: 20px auto;
-        margin-top: 70px;
+        text-align: center;
+        line-height: 1.6;
+        font-family: 'Rancho', cursive;
 
-        & li {
-            width: 50%;
-            transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-            cursor: pointer;
-
-            &:hover {
-                transform: scale(1.1);
-            }
-
-            & section {
-                width: 100%;
-                margin: 0 auto;
-                text-align: center;
-                line-height: 1.6;
-                font-family: "Rancho", cursive;
-
-                & img {
-                    width: 80%;
-                    margin: 0 auto;
-                }
-            }
-
-            @media (min-width: 768px) {
-                width: 25%;
-            }
+        & img {
+          border-radius: 10px;
+          width: 50%;
+          height: 200px;
+          object-fit: cover;
+          margin: 0 auto;
         }
+      }
+
+      @media (min-width: 768px) {
+        width: 18%;
+      }
     }
+  }
 }

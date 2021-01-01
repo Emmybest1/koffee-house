@@ -21,7 +21,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(fetchProductsRequest());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     let countInterval;
@@ -36,7 +36,7 @@ const Products = () => {
   return (
     <>
       <Header itemsInCart={1} />
-      <Main>
+      <Main className="products-main">
         <img src={`${process.env.PUBLIC_URL}/assets/images/shop-bg.jpg`} alt="" />
         <h2>Products</h2>
         <p className="coffee-count">
@@ -44,7 +44,7 @@ const Products = () => {
           types of Coffee
         </p>
         <ShopSorting />
-        <ShopItems />
+        <ShopItems products={products} />
       </Main>
       <Footer />
       <Loader isLoading={productsFetchingIsLoading} />

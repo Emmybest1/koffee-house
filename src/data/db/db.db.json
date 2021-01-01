@@ -27,6 +27,49 @@
       "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
       "price": "900.30",
       "image": "https://i.ibb.co/q1bN7Vw/item-4.webp"
+    },
+    {
+      "id": "mqlqxdd06",
+      "name": "Cora Tea",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "500.50",
+      "image": " https://i.ibb.co/Fm6hjjg/coro-tea.jpg"
+    },
+    {
+      "id": "ewvqxdd03",
+      "name": "Guludash Tea",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "300.50",
+      "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg"
+    },
+
+    {
+      "id": "tncqxdd03",
+      "name": "Jasmine Tea",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "900.50",
+      "image": "https://i.ibb.co/Y2LJr9T/jasmine-tea.jpg"
+    },
+    {
+      "id": "jklqxld03",
+      "name": "Toffee Tea",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "800.50",
+      "image": "https://i.ibb.co/Fx04RtZ/toffee-tea.jpg"
+    },
+    {
+      "id": "xapqxdd30",
+      "name": "Vinkash Tea",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "600.50",
+      "image": "https://i.ibb.co/g47Xk33/vinkash-tea.jpg"
+    },
+    {
+      "id": "sevqxdk92",
+      "name": "PelePele Tea",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "300.50",
+      "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg"
     }
   ],
   "users": [

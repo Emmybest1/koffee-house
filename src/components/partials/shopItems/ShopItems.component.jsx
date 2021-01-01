@@ -1,13 +1,12 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {products} from '../../../data/db/db.db.json';
+import PropTypes from 'prop-types';
 import './shop-items.style.scss';
 
 const ShopItems = (props) => {
   return (
     <div className="container shop-items-container">
       <ul>
-        {products.map((item) => {
+        {props.products.map((item) => {
           return (
             <li key={item.id.toString()} onClick={() => props.history.push(`/product/${item.id}`)}>
               <section>
@@ -24,4 +23,7 @@ const ShopItems = (props) => {
   );
 };
 
-export default withRouter(ShopItems);
+ShopItems.propTypes = {
+  products: PropTypes.array,
+};
+export default ShopItems;
