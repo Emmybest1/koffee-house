@@ -19,7 +19,7 @@ export const fetchProductRequest = (productId) => (dispatch) => {
   dispatch(fetchProductRequestStarted());
 
   api
-    .get(`http://localhost:4000/products?id=${productId}`)
+    .get(`${process.env.REACT_APP_DEV_URL}products?id=${productId}`)
     .then((res) => {
       dispatch(fetchProductSuccess(res.data));
     })

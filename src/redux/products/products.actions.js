@@ -18,7 +18,7 @@ export const fetchProductsFailure = (payload) => ({
 export const fetchProductsRequest = () => (dispatch) => {
   dispatch(fetchProductsRequestStarted());
   api
-    .get('http://localhost:4000/products?_sort=name=asc')
+    .get(`${process.env.REACT_APP_DEV_URL}products?_sort=name=asc`)
     .then((res) => {
       dispatch(fetchProductsSuccess(res.data));
     })
