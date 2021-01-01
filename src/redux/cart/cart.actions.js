@@ -38,7 +38,7 @@ export const postItemToCartRequestStarted = () => ({
 });
 
 export const postItemToCartSuccess = (payload) => ({
-  type: type.POST_ITEM_TO_CART_SUCCESS,
+  type: types.POST_ITEM_TO_CART_SUCCESS,
   payload,
 });
 

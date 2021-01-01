@@ -6,12 +6,12 @@ export const fetchProductRequestStarted = () => ({
 });
 
 export const fetchProductSuccess = (payload) => ({
-  type: types.FETCH_PRODUCTS_SUCCESS,
+  type: types.FETCH_PRODUCT_SUCCESS,
   payload,
 });
 
 export const fetchProductFailure = (payload) => ({
-  type: types.FETCH_PRODUCTS_FAILURE,
+  type: types.FETCH_PRODUCT_FAILURE,
   payload,
 });
 
@@ -21,9 +21,9 @@ export const fetchProductRequest = (productId) => (dispatch) => {
   api
     .get(`http://localhost:4000/products?id=${productId}`)
     .then((res) => {
-      dispatch(fetchProductsSuccess(res.data));
+      dispatch(fetchProductSuccess(res.data));
     })
     .catch((error) => {
-      dispatch(fetchProductsFailure(error.message));
+      dispatch(fetchProductFailure(error.message));
     });
 };

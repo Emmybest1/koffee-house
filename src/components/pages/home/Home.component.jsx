@@ -4,9 +4,9 @@ import Header from '../../structures/header/Header.component';
 import Main from '../../structures/main/Main.component';
 import Button from '../../partials/button/Button.component';
 import Footer from '../../structures/footer/Footer.component';
-import './home-page.style.scss';
+import './home.style.scss';
 
-const HomePage = () => {
+const Home = () => {
   return (
     <div className="landing-page-parent-wrapper">
       <Header />
@@ -64,4 +64,4 @@ const HomePage = () => {
     </div>
   );
 };
-export default HomePage;
+export default Home;

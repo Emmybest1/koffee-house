@@ -5,19 +5,21 @@ import './api-error-alert.style.scss';
 
 const ApiErrorAlert = ({errorHeading, apiErrorMessage}) => {
   return (
-    <div role="alertdialog" aria-modal="true" aria-label="An Api Error Dialog" className="api-error-alert">
-      <img src={`${process.env.PUBLIC_URL}/assets/images/api-error-img.svg`} alt="" />
-      <h3>{errorHeading}</h3>
-      <p>{apiErrorMessage}</p>
+    apiErrorMessage && (
+      <div role="alertdialog" aria-modal="true" aria-label="An Api Error Dialog" className="api-error-alert">
+        <img src={`${process.env.PUBLIC_URL}/assets/images/api-error-img.svg`} alt="" />
+        <h3>{errorHeading}</h3>
+        <p>{apiErrorMessage}</p>
 
-      <Button onClick={() => window.location.reload()}>Reload App</Button>
-    </div>
+        <Button onClick={() => window.location.reload()}>Reload App</Button>
+      </div>
+    )
   );
 };
 
 ApiErrorAlert.propTypes = {
   errorHeading: PropTypes.string,
-  apiErrorMessage: PropTypes.string.isRequired,
+  apiErrorMessage: PropTypes.string,
 };
 
 ApiErrorAlert.defaultProps = {

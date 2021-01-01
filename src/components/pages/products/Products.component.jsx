@@ -1,15 +1,27 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {products} from '../../../data/db/db.db.json';
+import {useDispatch, useSelector} from 'react-redux';
+
+import {fetchProductsRequest} from '../../../redux/root.actions';
+import ApiErrorAlert from '../../partials/modals/api-error-alert/ApiErrorAlert.component';
+import Loader from '../../partials/loader/Loader.component';
 import Header from '../../structures/header/Header.component';
 import Main from '../../structures/main/Main.component';
 import Footer from '../../structures/footer/Footer.component';
 import ShopItems from '../../partials/shopItems/ShopItems.component';
 import ShopSorting from '../../partials/shop-sorting/ShopSorting.component';
-import './shop.style.scss';
+import './products.style.scss';
 
-const Shop = () => {
+const Products = () => {
   let [count, setCount] = useState(0);
   const coffeeCountRef = useRef(null);
+  const dispatch = useDispatch();
+  const productsFetchingIsLoading = useSelector((state) => state.products.isLoading);
+  const productsFetchingErrorMessage = useSelector((state) => state.products.error);
+  const products = useSelector((state) => state.products.products);
+
+  useEffect(() => {
+    dispatch(fetchProductsRequest());
+  }, []);
 
   useEffect(() => {
     let countInterval;
@@ -18,7 +30,6 @@ const Shop = () => {
         setCount(count++);
       }
     }, 300);
-
     return () => clearInterval(countInterval);
   }, [count]);
 
@@ -36,8 +47,10 @@ const Shop = () => {
         <ShopItems />
       </Main>
       <Footer />
+      <Loader isLoading={productsFetchingIsLoading} />
+      <ApiErrorAlert errorHeading="Error Fetching Products" apiErrorMessage={productsFetchingErrorMessage} />
     </>
   );
 };
 
-export default Shop;
+export default Products;

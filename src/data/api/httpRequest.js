@@ -28,7 +28,3 @@ export const api = {
     });
   },
 };
-
-export const getRequestt = async (endpoint) => {
-  return endpoint;
-};
