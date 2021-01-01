@@ -40,7 +40,7 @@ const Header = ({className, itemsInCart}) => {
           <span className="top"></span>
           <span className="bottom"></span>
         </div>
-        <NavLink to="/" className="logo-wrapper">
+        <NavLink exact to="/" className="logo-wrapper">
           <img src={`${process.env.PUBLIC_URL}/assets/images/logo.png`} alt="" className="logo" />
         </NavLink>
         <NavLink to="/cart" className="items-in-cart">
