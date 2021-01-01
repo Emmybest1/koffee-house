@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
 import './shop-items.style.scss';
 
 const ShopItems = (props) => {
@@ -26,4 +27,4 @@ const ShopItems = (props) => {
 ShopItems.propTypes = {
   products: PropTypes.array,
 };
-export default ShopItems;
+export default withRouter(ShopItems);

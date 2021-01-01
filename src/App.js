@@ -1,7 +1,7 @@
 import React, {Suspense, lazy} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ErrorBoundary from './components/pages/error-boundary/ErrorBoundary.component';
-import NotFound from './components/pages/notfound/NotFound.component';
+import NotFound from './components/pages/not-found/NotFound.component';
 import './app.style.scss';
 
 const Home = lazy(() => import('./components/pages/home/Home.component'));
