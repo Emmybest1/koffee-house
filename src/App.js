@@ -1,34 +1,28 @@
-import React, { Suspense, lazy, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, {Suspense, lazy} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import ErrorBoundary from './components/pages/error-boundary/ErrorBoundary.component';
+import './app.style.scss';
 
-import SubscriptionModal from "./components/windows/modal/subscription/Subscription.component";
-import ErrorBoundary from "./pages/error-boundary/ErrorBoundary.component";
-import "./app.style.scss";
-
-const LandingPage = lazy(() => import("./pages/landing/LandingPage.component"));
-const Shop = lazy(() => import("./pages/shop/Shop.component"));
-const Product = lazy(() => import("./pages/product/Product.component"));
-const NotFound = lazy(() => import("./pages/notfound/NotFound.component"));
+const LandingPage = lazy(() => import('./components/pages/home-page/homePage.component'));
+const Shop = lazy(() => import('./components/pages/shop/Shop.component'));
+const Product = lazy(() => import('./components/pages/product/Product.component'));
+const NotFound = lazy(() => import('./components/pages/notfound/NotFound.component'));
 
 const App = () => {
-    return (
-        <Router>
-            <ErrorBoundary>
-                {useEffect(() => {
-                    window.scrollTo(0, 0);
-                }, [])}
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Switch>
-                        <Route exact path="/" component={LandingPage} />
-                        <Route exact path="/shop" component={Shop} />
-                        <Route exact path="/product/:productId" component={Product} />
-                        <Route exact path="/sub" component={SubscriptionModal} />
-                        <Route component={NotFound} />
-                    </Switch>
-                </Suspense>
-            </ErrorBoundary>
-        </Router>
-    );
+  return (
+    <Router>
+      <ErrorBoundary>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/shop" component={Shop} />
+            <Route exact path="/product/:productId" component={Product} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
+      </ErrorBoundary>
+    </Router>
+  );
 };
 
 export default App;

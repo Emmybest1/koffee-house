@@ -1,0 +1,51 @@
+{
+  "products": [
+    {
+      "id": "xcoeeff01",
+      "name": "Decaffeinated Coffee",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "400.00",
+      "image": "https://i.ibb.co/6Y9NV36/item-1.webp"
+    },
+    {
+      "id": "sgo38kl02",
+      "name": "Dried Pure Instant Coffee",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "300.00",
+      "image": "https://i.ibb.co/n1tPxk9/item-2.webp"
+    },
+    {
+      "id": "zalqxdd03",
+      "name": "Gold Filter Coffee",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "500.50",
+      "image": "https://i.ibb.co/2cmLXkF/item-3.webp"
+    },
+    {
+      "id": "tco46sg04",
+      "name": "Lemon Flavor Coffee",
+      "description": "lorem ipsum kaliej ekoe lorem ipsumn loevm valsed",
+      "price": "900.30",
+      "image": "https://i.ibb.co/q1bN7Vw/item-4.webp"
+    }
+  ],
+  "users": [
+    {
+      "name": "Emmanuel Onah",
+      "email": "emmajerry2016@gmail.com",
+      "password": "testing2020",
+      "cart": {
+        "numberOfItems": 1,
+        "items": [
+          {
+            "name": "iphone",
+            "price": "2000",
+            "currency": "dollars",
+            "quantity": "2",
+            "shipping address": "Tallinn Estonia 11293"
+          }
+        ]
+      }
+    }
+  ]
+}
