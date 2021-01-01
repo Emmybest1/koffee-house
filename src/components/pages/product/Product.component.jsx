@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import SubscriptionModal from '../../partials/modal/subscription/Subscription.component';
+import SubscriptionModal from '../../partials/modals/subscription/Subscription.component';
 import Header from '../../structures/header/Header.component';
 import Main from '../../structures/main/Main.component';
 import Button from '../../partials/button/Button.component';
-import {getRequestt} from '../../../data/api/httpHelper';
+import {getRequestt} from '../../../data/api/httpRequest';
 import {products} from '../../../data/db/db.db.json';
 import '../../partials/shopItems/shop-items.style.scss';
 import './product.style.scss';
@@ -13,7 +13,6 @@ const Product = (props) => {
   const [shouldMountSubscriptionModal, setShouldMountSubscriptionModal] = useState(false);
   const [product, setProduct] = useState([]);
   let [quantity, setQuantity] = useState(1);
-  const subModalContainerRef = useRef(null);
 
   useEffect(() => {
     getRequestt(products).then((res) => {
@@ -24,17 +23,6 @@ const Product = (props) => {
         .map((res) => setProduct([res]));
     });
   }, [props.match.params.productId]);
-
-  useEffect(() => {
-    let showTimeOut;
-    showTimeOut = setTimeout(() => {
-      subModalContainerRef.current.style.display = 'block';
-    }, 5000);
-
-    return () => {
-      clearTimeout(showTimeOut);
-    };
-  }, []);
 
   useEffect(() => {
     let timeout;
@@ -57,8 +45,7 @@ const Product = (props) => {
             {product.map((product) => (
               <li key={product.id}>
                 <section>
-                  <image src={product.image} alt="" />
-
+                  <img src={product.image} alt="" style={{width: '250px'}} />
                   <h3>{product.name}</h3>
                   <p>Summary: {product.description}</p>
                   <p className="desc">
@@ -90,8 +77,6 @@ const Product = (props) => {
             ))}
           </ul>
         </div>
-
-        <div className="sub-modal-container" ref={subModalContainerRef}></div>
       </Main>
       <>{shouldMountSubscriptionModal && <SubscriptionModal />}</>
     </>

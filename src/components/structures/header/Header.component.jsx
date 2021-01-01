@@ -1,11 +1,33 @@
-import React, {useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MenuItem from '../../partials/menu-bar-items/MenuItems.component';
+import InternetConnection from '../../partials/modals/internet-connection/InternetConnection.component';
 import './header.style.scss';
 
 const Header = ({className, itemsInCart}) => {
+  const [shouldPopUpInternetAlert, setShouldPopUpInternetAlert] = useState(false);
   const menuItemRef = useRef(null);
+
+  const offlineHandler = () => {
+    setShouldPopUpInternetAlert(true);
+  };
+  useEffect(() => {
+    window.addEventListener('offline', offlineHandler);
+    return () => {
+      window.removeEventListener('offline', offlineHandler);
+    };
+  }, [shouldPopUpInternetAlert]);
+
+  const onlineHandler = () => {
+    setShouldPopUpInternetAlert(false);
+  };
+  useEffect(() => {
+    window.addEventListener('online', onlineHandler);
+    return () => {
+      window.removeEventListener('online', onlineHandler);
+    };
+  }, [shouldPopUpInternetAlert]);
 
   const openMenuItems = () => {
     menuItemRef.current.showMenuItem();
@@ -26,6 +48,7 @@ const Header = ({className, itemsInCart}) => {
         </NavLink>
       </header>
       <MenuItem ref={menuItemRef} />
+      <>{shouldPopUpInternetAlert && <InternetConnection />}</>
     </>
   );
 };

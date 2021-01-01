@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 import Input from '../../input/Input.component';
 import './subscription.style.scss';
 
-const SubscriptionModal = () => {
+const Subscription = () => {
   const [shouldShowModal, setShouldShowModal] = useState(true);
   const [email, setEmail] = useState('');
   const subscribeModalRef = useRef(null);
@@ -50,4 +50,4 @@ const SubscriptionModal = () => {
   );
 };
 
-export default SubscriptionModal;
+export default Subscription;
