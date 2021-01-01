@@ -17,7 +17,7 @@ const Home = () => {
               <h3>Get Up,Get Coffee,Be Happy</h3>
               <Button>
                 <Link to="/shop" className="link">
-                  Book
+                  Shop Now
                 </Link>
               </Button>
             </div>
@@ -47,7 +47,7 @@ const Home = () => {
         <section className="img-description-container">
           <img src={`${process.env.PUBLIC_URL}/assets/images/img-1_1000X.jpg`} alt="" className="img__description" />
           <img src={`${process.env.PUBLIC_URL}/assets/images/img-2_1000X.jpg`} alt="" className="img__description" />
-          <img src={`${process.env.PUBLIC_URL}/assets/images/img-3_1000X.jpg`} alt="" className="img__description" />
+          <img src="https://i.ibb.co/Fx04RtZ/toffee-tea.jpg" alt="" className="img__description" />
           <img
             src={`${process.env.PUBLIC_URL}/assets/images/img-4_1920X.jpg`}
             alt=""

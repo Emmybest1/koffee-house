@@ -7,6 +7,7 @@ import './app.style.scss';
 const Home = lazy(() => import('./components/pages/home/Home.component'));
 const Products = lazy(() => import('./components/pages/products/Products.component'));
 const Product = lazy(() => import('./components/pages/product/Product.component'));
+const Login = lazy(() => import('./components/pages/auth/login/Login.component'));
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/shop" component={Products} />
               <Route exact path="/product/:productId" component={Product} />
+              <Route path="/login" component={Login} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>

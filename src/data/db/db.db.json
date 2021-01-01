@@ -1,4 +1,20 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "Emmanuel Onah",
+      "email": "emmajerry2016@gmail.com",
+      "password": "testing2020",
+      "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+    },
+    {
+      "id": 2,
+      "name": "Grace Onah",
+      "email": "grace2016@gmail.com",
+      "password": "testing2020",
+      "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc"
+    }
+  ],
   "products": [
     {
       "id": "xcoeeff01",
@@ -72,23 +88,42 @@
       "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg"
     }
   ],
-  "users": [
+  "cartItems": [
     {
-      "name": "Emmanuel Onah",
-      "email": "emmajerry2016@gmail.com",
-      "password": "testing2020",
-      "cart": {
-        "numberOfItems": 1,
-        "items": [
-          {
-            "name": "iphone",
-            "price": "2000",
-            "currency": "dollars",
-            "quantity": "2",
-            "shipping address": "Tallinn Estonia 11293"
-          }
-        ]
-      }
+      "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
+      "id": 1,
+      "name": "iphone 5",
+      "price": "2000",
+      "currency": "dollars",
+      "quantity": "2",
+      "shipping address": "Tallinn Estonia 11293"
+    },
+    {
+      "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
+      "id": 2,
+      "name": "iphone 6",
+      "price": "2000",
+      "currency": "dollars",
+      "quantity": "2",
+      "shipping address": "Tallinn Estonia 11293"
+    },
+    {
+      "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
+      "id": 3,
+      "name": "iphone 7",
+      "price": "2000",
+      "currency": "dollars",
+      "quantity": "2",
+      "shipping address": "Tallinn Estonia 11293"
+    },
+    {
+      "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
+      "id": 4,
+      "name": "iphone 8",
+      "price": "2000",
+      "currency": "dollars",
+      "quantity": "2",
+      "shipping address": "Tallinn Estonia 11293"
     }
   ]
 }

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {fetchProductRequest} from '../../../redux/root.actions';
@@ -9,7 +8,6 @@ import SubscriptionModal from '../../partials/modals/subscription/Subscription.c
 import Header from '../../structures/header/Header.component';
 import Main from '../../structures/main/Main.component';
 import Button from '../../partials/button/Button.component';
-
 import './product.style.scss';
 
 const Product = ({match}) => {
@@ -67,9 +65,9 @@ const Product = ({match}) => {
                 </div>
               </section>
 
-              <Link to="/cart" className="add-to-cart-btn">
+              <Button to="/cart" className="add-to-cart-btn">
                 <i className="fa fa-cart-plus"></i> Add to Cart
-              </Link>
+              </Button>
             </li>
           </ul>
         </div>

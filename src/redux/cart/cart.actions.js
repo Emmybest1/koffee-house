@@ -18,10 +18,10 @@ export const fetchCartItemsFailure = (payload) => ({
   payload,
 });
 
-export const fetchCartItemsRequest = () => (dispatch) => {
+export const fetchCartItemsRequest = (apiKey) => (dispatch) => {
   dispatch(fetchCartItemsRequestStarted());
   api
-    .get('')
+    .get(`http://localhost:4000/cartItems?api-key=${apiKey}`)
     .then((res) => {
       dispatch(fetchCartItemsSuccess(res.data));
     })
@@ -49,7 +49,7 @@ export const postItemToCartFailure = (payload) => ({
 
 export const postItemToCartRequest = (data) => (dispatch) => {
   dispatch(postItemToCartRequestStarted());
-  api.post('').then(() => {
+  api.post('http://localhost:4000/cartItems').then(() => {
     dispatch(postItemToCartSuccess(data)).catch((error) => {
       dispatch(postItemToCartFailure(error.message));
     });

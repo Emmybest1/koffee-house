@@ -1,0 +1,93 @@
+.login-container,
+.signup-container {
+  width: 100%;
+  margin: 0 auto;
+
+  & .img-and-homeicon-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+
+    & span {
+      color: #000;
+      cursor: pointer;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      padding-right: 20px;
+    }
+  }
+
+  & img {
+    width: 100%;
+    margin: 0 auto;
+
+    @media (min-width: 1000px) {
+      display: none;
+    }
+  }
+
+  & form {
+    background-color: #fff !important;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7em;
+    padding: 20px 40px;
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: -50px;
+
+    & * {
+      border: 0;
+      padding: 5px 0;
+    }
+
+    & [type='text'],
+    & [type='email'],
+    & [type='password'] {
+      border-bottom: solid 1px #000;
+    }
+
+    & [type='submit'] {
+      background-color: #008000;
+      color: #fff;
+    }
+
+    & [type='submit'],
+    & button {
+      border-radius: 5px;
+      padding: 15px 10px;
+      margin-top: 10px;
+    }
+
+    & .forgot-password {
+      color: #000;
+      text-align: center;
+    }
+
+    @media (min-width: 1000px) {
+      width: 70%;
+      margin-top: 0;
+      margin: 0 auto;
+    }
+  }
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+
+  & button {
+    border: solid 1px #333;
+    width: 150px;
+  }
+}
