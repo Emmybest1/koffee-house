@@ -31,7 +31,7 @@ const Products = () => {
       }
     }, 300);
     return () => clearInterval(countInterval);
-  }, [count]);
+  }, [products, count]);
 
   return (
     <>
