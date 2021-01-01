@@ -5,7 +5,7 @@ import './main.style.scss';
 
 const Main = ({children, className, ...otherProps}) => {
   return (
-    <main className={className} {...otherProps}>
+    <main className={className} {...otherProps} id="main">
       {children}
     </main>
   );

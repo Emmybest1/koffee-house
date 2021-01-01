@@ -1,6 +1,6 @@
 :root {
-    --textColorGold: #e7bb6a;
-    --footerBackgroundColor: #523021;
+  --textColorGold: #e7bb6a;
+  --footerBackgroundColor: #523021;
 }
 
 /*-----------------------------------
@@ -9,35 +9,35 @@ General Settings
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    font-size: 15px;
-    scroll-behavior: smooth;
-    font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  scroll-behavior: smooth;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
-    background-image: url(/assets/images/bg-icon-4_1920X.png);
-    background-size: cover;
-    background-position: bottom;
+  background-image: url(/assets/images/bg-icon-4_1920X.png);
+  background-size: cover;
+  background-position: bottom;
 }
 
 img {
-    display: block;
-    object-fit: cover;
+  display: block;
+  object-fit: cover;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 h1,
@@ -46,31 +46,42 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Rancho", cursive;
+  font-family: 'Rancho', cursive;
 }
 
 /*-----------------------------------
 Layout Settings
 -------------------------------------*/
 #root {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+#skipToMainContent {
+  border: solid 1px var(--textColorGold);
+  border-radius: 5px;
+  color: #000;
+  font-size: 0.7em;
+  padding: 5px;
+  position: absolute;
+  z-index: 300;
+  left: -1000px;
+}
+
+#skipToMainContent:focus {
+  left: 0;
 }
 
 .container {
-    width: 100%;
-    padding: 5px 20px;
+  width: 100%;
+  padding: 5px 20px;
 }
 
 .container-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .link {
-    color: #000;
-}
-
-:focus {
-    // outline: none;
+  color: #000;
 }
