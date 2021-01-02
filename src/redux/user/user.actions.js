@@ -45,6 +45,33 @@ export const signInUserRequest = (payload) => (dispatch) => {
 /***
  *@action : signUpUserActions
  */
+export const signUpUserRequestStarted = () => {
+  type: types.SIGN_UP_USER_REQUEST;
+};
+
+export const signUpUserRequestSuccess = (payload) => ({
+  type: types.SIGN_UP_USER_REQUEST_SUCCESS,
+  payload,
+});
+
+export const signUpUserRequestFailure = (payload) => ({
+  type: types.SIGN_UP_USER_REQUEST_FAILURE,
+  payload,
+});
+
+export const signUpUserRequest = (payload) => (dispatch) => {
+  dispatch(signUpUserRequestStarted());
+  const data = {...payload, 'api-key': ''};
+
+  api
+    .post(`${process.env.REACT_APP_DEV_URL}users`, data)
+    .then((res) => {
+      dispatch(signUpUserRequestSuccess(res.data));
+    })
+    .catch((error) => {
+      dispatch(signUpUserRequestFailure(error.message));
+    });
+};
 
 /***
  *@action : signOutUserActions

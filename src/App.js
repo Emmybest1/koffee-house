@@ -10,7 +10,6 @@ const Product = lazy(() => import('./components/pages/product/Product.component'
 const Login = lazy(() => import('./components/pages/auth/login/Login.component'));
 
 const App = () => {
-  console.log(process.env);
   return (
     <>
       <a href="#main" id="skipToMainContent">
