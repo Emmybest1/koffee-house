@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {fetchProductRequest} from '../../../redux/root.actions';
@@ -14,7 +15,7 @@ import './product.style.scss';
 const Product = ({match}) => {
   const [shouldMountSubscriptionModal, setShouldMountSubscriptionModal] = useState(false);
   const [quantity, setQuantity] = useState(1);
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const productFetchingIsLoading = useSelector(selectIsLoading);
   const productFetchingError = useSelector(selectError);
@@ -50,7 +51,7 @@ const Product = ({match}) => {
                   laborum facilis sunt? Ab nam rerum, harum at nemo quas doloribus culpa vel expedita maxime repudiandae
                   numquam! Quasi facere blanditiis officia repellat, cupiditate amet fuga fugiat praesentium
                 </p>
-                <p className="price">Price:$ {product.price * quantity}</p>
+                <p className="price">Price:$ {Math.round(product.price * quantity)}</p>
                 <div className="quantity-wrapper">
                   <Button onClick={() => setQuantity((quantity) => --quantity)} disabled={quantity < 2}>
                     <i className="fa fa-minus"></i>
@@ -66,7 +67,7 @@ const Product = ({match}) => {
                 </div>
               </section>
 
-              <Button to="/cart" className="add-to-cart-btn">
+              <Button className="add-to-cart-btn" onClick={() => history.push(`/cart`)}>
                 <i className="fa fa-cart-plus"></i> Add to Cart
               </Button>
             </li>

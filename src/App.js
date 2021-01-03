@@ -7,6 +7,7 @@ import ErrorBoundary from './components/pages/error-boundary/ErrorBoundary.compo
 import NotFound from './components/pages/not-found/NotFound.component';
 import './app.style.scss';
 
+const Cart = lazy(() => import('./components/pages/cart/cart.component'));
 const Home = lazy(() => import('./components/pages/home/Home.component'));
 const Products = lazy(() => import('./components/pages/products/Products.component'));
 const Product = lazy(() => import('./components/pages/product/Product.component'));
@@ -37,7 +38,8 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/shop" component={Products} />
               <Route exact path="/product/:productId" component={Product} />
-              <Route path="/login" component={Login} />
+              <Route exact path="/cart" component={Cart} />
+              <Route exact path="/login" component={Login} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>

@@ -9,7 +9,7 @@
 
 .shop-items-container {
   & ul {
-    margin-top: 130px;
+    margin-top: 50px;
 
     & li {
       width: 90%;
@@ -63,6 +63,10 @@
         & .quantity {
           font-size: 1.2em;
         }
+      }
+
+      & section img {
+        border: solid 2px #eee;
       }
     }
   }
