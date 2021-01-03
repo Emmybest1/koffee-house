@@ -75,7 +75,7 @@ const Product = ({match}) => {
                   const itemToPostToCart = {
                     'api-key': user['api-key'],
                     name: product.name,
-                    price: product.price,
+                    price: Math.round(product.price * quantity),
                     image: product.image,
                     currency: 'dollars',
                     'shipping-address': 'xxxxx-xxxx',
