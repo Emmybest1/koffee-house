@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+
 import Header from '../../structures/header/Header.component';
 import Main from '../../structures/main/Main.component';
 import Button from '../../partials/button/Button.component';

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import {useUniqueIds} from '../../../hooks/useUniqueIds';
 import Input from '../../partials/input/Input.component';
 import './footer.style.scss';

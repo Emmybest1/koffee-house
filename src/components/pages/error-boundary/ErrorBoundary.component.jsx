@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+
 import Main from '../../structures/main/Main.component';
 import './error-boundary.style.scss';
 

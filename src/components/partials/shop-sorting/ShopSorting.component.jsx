@@ -1,7 +1,8 @@
-import React, {lazy, useState} from 'react';
+import React, {useState} from 'react';
 import {useUniqueIds} from '../../../hooks/useUniqueIds';
+
+import SelectOption from '../select-option/SelectOption.component';
 import './shop-sorting.style.scss';
-const SelectOption = lazy(() => import('../select-option/SelectOption.component'));
 
 const ShopSorting = () => {
   const [sorting, setSorting] = useState({showSort: '', sortBy: ''});

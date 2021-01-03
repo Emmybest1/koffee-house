@@ -1,5 +1,6 @@
 import React from 'react';
 import PropType from 'prop-types';
+
 import './input.style.scss';
 
 const Input = ({type, id, textarea, labelText, ...otherProps}) => {

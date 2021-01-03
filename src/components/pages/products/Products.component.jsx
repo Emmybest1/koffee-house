@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {selectIsLoading,selectProducts,selectError} from '../../../redux/products/products.selector';
+import {selectIsLoading, selectProducts, selectError} from '../../../redux/products/products.selector';
 import {fetchProductsRequest} from '../../../redux/root.actions';
 import ApiErrorAlert from '../../partials/modals/api-error-alert/ApiErrorAlert.component';
 import Loader from '../../partials/loader/Loader.component';
