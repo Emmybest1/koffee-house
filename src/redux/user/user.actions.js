@@ -1,24 +1,14 @@
 import {types} from './user.types';
 import {api} from '../../data/api/httpRequest';
+import {generateApiKey} from '../../utils/api-key-generator';
 
-export const types = {
-  SIGN_IN_USER_REQUEST: 'SIGN_IN_USER_REQUEST',
-  SIGN_IN_USER_REQUEST_SUCCESS: 'SIGN_IN_USER_REQUEST_SUCCESS',
-  SIGN_IN_USER_REQUEST_FAILURE: 'SIGN_IN_USER_REQUEST_FAILURE',
-  SIGN_UP_USER_REQUEST: 'SIGN_UP_USER_REQUEST',
-  SIGN_UP_USER_REQUEST_SUCCESS: 'SIGN_UP_USER_REQUEST_SUCCESS',
-  SIGN_UP_USER_REQUEST_FAILURE: 'SIGN_UP_USER_REQUEST_FAILURE',
-  SIGN_OUT_USER_REQUEST: 'SIGN_OUT_USER_REQUEST',
-  SIGN_OUT_USER_REQUEST_SUCCESS: 'SIGN_OUT_USER_REQUEST_SUCCESS',
-  SIGN_OUT_USER_REQUEST_FAILURE: 'SIGN_OUT_USER_REQUEST_FAILURE',
-};
-
-/***
- *@action : signInUserActions
- */
-export const signInUserRequestStarted = () => {
-  type: types.SIGN_IN_USER_REQUEST;
-};
+/*********
+ *@action
+ *signInUserActions
+ *********/
+export const signInUserRequestStarted = () => ({
+  type: types.SIGN_IN_USER_REQUEST,
+});
 
 export const signInUserRequestSuccess = (payload) => ({
   type: types.SIGN_IN_USER_REQUEST_SUCCESS,
@@ -42,12 +32,13 @@ export const signInUserRequest = (payload) => (dispatch) => {
       dispatch(signInUserRequestFailure(error.message));
     });
 };
-/***
- *@action : signUpUserActions
- */
-export const signUpUserRequestStarted = () => {
-  type: types.SIGN_UP_USER_REQUEST;
-};
+/***********
+ *@action
+ *signUpUserActions
+ ***********/
+export const signUpUserRequestStarted = () => ({
+  type: types.SIGN_UP_USER_REQUEST,
+});
 
 export const signUpUserRequestSuccess = (payload) => ({
   type: types.SIGN_UP_USER_REQUEST_SUCCESS,
@@ -61,7 +52,8 @@ export const signUpUserRequestFailure = (payload) => ({
 
 export const signUpUserRequest = (payload) => (dispatch) => {
   dispatch(signUpUserRequestStarted());
-  const data = {...payload, 'api-key': ''};
+  const apiKey = generateApiKey();
+  const data = {...payload, 'api-key': apiKey};
 
   api
     .post(`${process.env.REACT_APP_DEV_URL}users`, data)
@@ -73,6 +65,24 @@ export const signUpUserRequest = (payload) => (dispatch) => {
     });
 };
 
-/***
- *@action : signOutUserActions
- */
+/***********
+ *@action
+ *signOutUserActions
+ ***********/
+export const signOutUserRequestStarted = () => ({
+  type: types.SIGN_OUT_USER_REQUEST,
+});
+
+export const signOutUserRequestSucess = (payload) => ({
+  type: types.SIGN_OUT_USER_REQUEST_SUCCESS,
+  payload,
+});
+
+export const signOutUserRequestFailure = (payload) => ({
+  type: types.SIGN_OUT_USER_REQUEST_FAILURE,
+  payload,
+});
+
+export const signOutUserRequest = () => ({
+  type: types.SIGN_OUT_USER_REQUEST,
+});

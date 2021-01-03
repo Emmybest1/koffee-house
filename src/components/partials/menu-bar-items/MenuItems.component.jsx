@@ -38,11 +38,6 @@ const MenuItems = forwardRef((prop, ref) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/pages" className="link">
-            PAGES
-          </NavLink>
-        </li>
-        <li>
           <NavLink to="/wishlist" className="link">
             WISHLIST
           </NavLink>

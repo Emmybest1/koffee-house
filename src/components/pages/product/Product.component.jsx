@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {fetchProductRequest} from '../../../redux/root.actions';
+import {selectIsLoading, selectError, selectProduct} from '../../../redux/product/product.selector';
 import ApiErrorAlert from '../../partials/modals/api-error-alert/ApiErrorAlert.component';
 import Loader from '../../partials/loader/Loader.component';
 import SubscriptionModal from '../../partials/modals/subscription/Subscription.component';
@@ -15,9 +16,9 @@ const Product = ({match}) => {
   const [quantity, setQuantity] = useState(1);
 
   const dispatch = useDispatch();
-  const productFetchingIsLoading = useSelector((state) => state.product.isLoading);
-  const productFetchingError = useSelector((state) => state.product.error);
-  const product = useSelector((state) => state.product.product);
+  const productFetchingIsLoading = useSelector(selectIsLoading);
+  const productFetchingError = useSelector(selectError);
+  const product = useSelector(selectProduct);
 
   useEffect(() => {
     dispatch(fetchProductRequest(match.params.productId));
