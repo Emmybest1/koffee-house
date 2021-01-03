@@ -136,6 +136,16 @@
       "shipping-address": "xxxxx-xxxx",
       "quantity": 1,
       "id": 11
+    },
+    {
+      "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
+      "name": "Jasmine Tea",
+      "price": 3602,
+      "image": "https://i.ibb.co/Y2LJr9T/jasmine-tea.jpg",
+      "currency": "dollars",
+      "shipping-address": "xxxxx-xxxx",
+      "quantity": 4,
+      "id": 12
     }
   ]
 }
