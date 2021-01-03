@@ -1,6 +1,10 @@
 .product-component-header {
   background-color: var(--footerBackgroundColor);
   width: 100%;
+
+  & img {
+    width: 100px !important;
+  }
 }
 
 .shop-items-container {
@@ -29,43 +33,34 @@
       }
 
       & .add-to-cart-btn {
-        display: block;
         background-color: var(--footerBackgroundColor);
-        width: 300px;
-        height: 40px;
         color: #fff;
-        border-radius: 50px;
+        display: block;
+        width: 200px;
+        border-radius: 10px;
         text-align: center;
         padding: 4px 10px;
       }
 
       & .quantity-wrapper {
+        border-radius: 15px;
+        border: solid 1px #000;
+        font-family: sans-serif;
         display: flex;
-        background-color: var(--footerBackgroundColor);
-        height: 50px;
         justify-content: space-between;
-        align-content: center;
-        align-items: center;
         font-size: 1em;
-        margin: 20px auto;
+        margin-bottom: 20px;
+        width: 200px;
+        height: 40px;
 
         & > p,
         & > button {
-          background-color: #ffe09d;
-          border-radius: 5px;
+          background-color: transparent;
           width: 20%;
-          height: 70px;
           text-align: center;
-          cursor: pointer;
         }
 
         & .quantity {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-          color: #000;
-          font-family: sans-serif;
           font-size: 1.2em;
         }
       }
