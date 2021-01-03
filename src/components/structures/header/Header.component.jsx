@@ -36,7 +36,7 @@ const Header = ({className, itemsInCart}) => {
   return (
     <>
       <header className={`container-flex ${className}`}>
-        <div className="container-flex-menu__bar" onClick={openMenuItems}>
+        <div className="container-flex-menu__bar" data-test="menubar-btn" onClick={openMenuItems}>
           <span className="top"></span>
           <span className="bottom"></span>
         </div>

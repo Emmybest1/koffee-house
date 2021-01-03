@@ -35,7 +35,7 @@ const MenuItems = forwardRef((props, ref) => {
     <div className="menu-items-wrapper" ref={menuItemRef}>
       <span className="container-flex cancel-search-wrapper">
         <Input type="search" id={searchInputId} placeholder="Search Coffee" aria-label="Search Coffee" />
-        <span onClick={closeMenuItems}>
+        <span onClick={closeMenuItems} data-test="fa-times">
           <i className="fa fa-times"></i>
         </span>
       </span>
