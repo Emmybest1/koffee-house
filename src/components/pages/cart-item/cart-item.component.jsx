@@ -1,15 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useDispatch} from 'react-redux';
 
+import {deleteItemFromCartRequest} from '../../../redux/root.actions';
 import './cart-item.style.scss';
 
 const CartItem = ({items}) => {
+  const dispatch = useDispatch();
+
   return items?.length ? (
     <div className="cart-item-container">
       {items.map((item) => (
         <section key={item?.id.toString()}>
           <div className="delete-btn-wrapper">
-            <i className="fa fa-trash-alt"></i>
+            <i
+              className="fa fa-trash-alt"
+              onClick={async () => {
+                await dispatch(deleteItemFromCartRequest(item?.id));
+              }}
+            ></i>
           </div>
 
           <div className="item-img-wrapper">

@@ -119,16 +119,6 @@
       "shipping-address": "Tallinn Estonia 11293"
     },
     {
-      "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
-      "id": 4,
-      "name": "Lemon Tea",
-      "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg",
-      "price": "2000",
-      "currency": "dollars",
-      "quantity": "2",
-      "shipping-address": "Tallinn Estonia 11293"
-    },
-    {
       "id": 5
     },
     {
@@ -139,23 +129,13 @@
     },
     {
       "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
-      "name": "Dried Pure Instant Coffee",
-      "price": "300.00",
-      "image": "https://i.ibb.co/n1tPxk9/item-2.webp",
+      "name": "Gold Filter Coffee",
+      "price": 501,
+      "image": "https://i.ibb.co/2cmLXkF/item-3.webp",
       "currency": "dollars",
       "shipping-address": "xxxxx-xxxx",
       "quantity": 1,
-      "id": 8
-    },
-    {
-      "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
-      "name": "Cora Tea",
-      "price": "500.50",
-      "image": " https://i.ibb.co/Fm6hjjg/coro-tea.jpg",
-      "currency": "dollars",
-      "shipping-address": "xxxxx-xxxx",
-      "quantity": 5,
-      "id": 9
+      "id": 11
     }
   ]
 }

@@ -23,6 +23,7 @@ export const fetchProductsRequest = () => (dispatch) => {
       dispatch(fetchProductsSuccess(res.data));
     })
     .catch((error) => {
+      console.error(error.message);
       dispatch(fetchProductsFailure(error.message));
     });
 };

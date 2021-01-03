@@ -29,6 +29,13 @@ export const reducer = (state = initialState, action) => {
       return {...state, error: action.payload};
     }
 
+    case types.DELETE_ITEM_FROM_CART_SUCCESS:
+      window.location.reload();
+      return {...state, isLoading: false};
+
+    case types.DELETE_ITEM_FROM_CART_FAILURE:
+      return {...state, isLoading: false, error: action.payload};
+
     default:
       return state;
   }

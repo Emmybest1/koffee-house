@@ -29,6 +29,7 @@ export const signInUserRequest = (payload) => (dispatch) => {
       dispatch(signInUserRequestSuccess(res.data));
     })
     .catch((error) => {
+      console.error(error.message);
       dispatch(signInUserRequestFailure(error.message));
     });
 };
@@ -61,6 +62,7 @@ export const signUpUserRequest = (payload) => (dispatch) => {
       dispatch(signUpUserRequestSuccess(res.data));
     })
     .catch((error) => {
+      console.error(error.message);
       dispatch(signUpUserRequestFailure(error.message));
     });
 };

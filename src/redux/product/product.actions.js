@@ -24,6 +24,7 @@ export const fetchProductRequest = (productId) => (dispatch) => {
       dispatch(fetchProductSuccess(res.data));
     })
     .catch((error) => {
+      console.error(error.message);
       dispatch(fetchProductFailure(error.message));
     });
 };

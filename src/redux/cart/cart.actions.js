@@ -1,9 +1,10 @@
 import {types} from './cart.types';
 import {api} from '../../data/api/httpRequest';
 
-/***
- * @action : fetch items actions
- */
+/**********
+ *
+ * @action fetch items actions
+ **********/
 export const fetchCartItemsRequestStarted = () => ({
   type: types.FETCH_CART_ITEMS_REQUEST,
 });
@@ -26,13 +27,15 @@ export const fetchCartItemsRequest = (apiKey) => (dispatch) => {
       dispatch(fetchCartItemsSuccess(res.data));
     })
     .catch((error) => {
-      dispatch(fetchCartItemsFailure(error.message));
+      console.error(error.message);
+      dispatch(fetchCartItemsFailure(error?.message));
     });
 };
 
-/***
- * @action : post items actions
- */
+/*********
+ *
+ * @action post items actions
+ *********/
 export const postItemToCartRequestStarted = () => ({
   type: types.POST_ITEM_TO_CART_REQUEST,
 });
@@ -55,6 +58,38 @@ export const postItemToCartRequest = (data) => (dispatch) => {
       dispatch(postItemToCartSuccess(data));
     })
     .catch((error) => {
-      dispatch(postItemToCartFailure(error.message));
+      console.error(error.message);
+      dispatch(postItemToCartFailure(error?.message));
+    });
+};
+
+/*********
+ *
+ * @action items items actions
+ *********/
+export const deleteItemFromCartRequestStart = () => ({
+  type: types.DELETE_ITEM_FROM_CART_REQUEST,
+});
+
+export const deleteItemFromCartRequestSuccess = (payload) => ({
+  type: types.DELETE_ITEM_FROM_CART_SUCCESS,
+  payload,
+});
+
+export const deleteItemFromCartRequestFailure = (payload) => ({
+  type: types.DELETE_ITEM_FROM_CART_FAILURE,
+  payload,
+});
+
+export const deleteItemFromCartRequest = (id) => (dispatch) => {
+  dispatch(deleteItemFromCartRequestStart);
+  api
+    .delete(`${process.env.REACT_APP_DEV_URL}cartitems/${id}`)
+    .then((res) => {
+      dispatch(deleteItemFromCartRequestSuccess(res.data));
+    })
+    .catch((error) => {
+      console.error(error.message);
+      dispatch(deleteItemFromCartRequestFailure(error?.message));
     });
 };

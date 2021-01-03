@@ -15,6 +15,7 @@ header {
     cursor: pointer;
 
     & .top,
+    & .middle,
     & .bottom {
       display: block;
       width: 30px;
@@ -26,6 +27,10 @@ header {
       background-color: #fff;
       margin-bottom: 5px;
       cursor: pointer;
+    }
+
+    & .middle {
+      width: 25px;
     }
   }
   & .logo-wrapper {
@@ -39,8 +44,9 @@ header {
   & .items-in-cart {
     color: #fff;
   }
-  & .logo {
+  & .logo-wrapper .logo {
     @media (min-width: 768px) {
+      width: 150px;
     }
   }
 }

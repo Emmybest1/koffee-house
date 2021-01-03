@@ -38,6 +38,7 @@ const Header = ({className, itemsInCart}) => {
       <header className={`container-flex ${className}`}>
         <div className="container-flex-menu__bar" data-test="menubar-btn" onClick={openMenuItems}>
           <span className="top"></span>
+          <span className="middle"></span>
           <span className="bottom"></span>
         </div>
         <NavLink exact to="/" className="logo-wrapper">
