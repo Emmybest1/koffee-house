@@ -19,6 +19,7 @@ const Footer = () => {
 
   return (
     <footer className="container">
+      <img src={`${process.env.PUBLIC_URL}/assets/images/logo.png`} alt="" />
       <div className="about-us-wrapper">
         <h3>About us</h3>
         <p>
@@ -27,8 +28,6 @@ const Footer = () => {
           minus.
         </p>
       </div>
-      <img src={`${process.env.PUBLIC_URL}/assets/images/logo.png`} alt="" />
-
       <div className="opening-hours-wrapper">
         <h3>Opening hours</h3>
         <ul>
@@ -80,9 +79,9 @@ const Footer = () => {
       <div className="contact-us-wrapper">
         <h3>Contact us</h3>
         <ul>
-          <li>fake address no fake2 7228822</li>
-          <li>fake@fake.fake</li>
-          <li>+0383733838383</li>
+          <li>Tallinn Estonia</li>
+          <li>africlite@gmail.com</li>
+          <li>+37258311750</li>
         </ul>
       </div>
 

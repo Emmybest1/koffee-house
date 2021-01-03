@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
+import {selectIsLoading,selectProducts,selectError} from '../../../redux/products/products.selector';
 import {fetchProductsRequest} from '../../../redux/root.actions';
 import ApiErrorAlert from '../../partials/modals/api-error-alert/ApiErrorAlert.component';
 import Loader from '../../partials/loader/Loader.component';
@@ -15,9 +16,9 @@ const Products = () => {
   let [count, setCount] = useState(0);
   const coffeeCountRef = useRef(null);
   const dispatch = useDispatch();
-  const productsFetchingIsLoading = useSelector((state) => state.products.isLoading);
-  const productsFetchingErrorMessage = useSelector((state) => state.products.error);
-  const products = useSelector((state) => state.products.products);
+  const productsFetchingIsLoading = useSelector(selectIsLoading);
+  const productsFetchingErrorMessage = useSelector(selectError);
+  const products = useSelector(selectProducts);
 
   useEffect(() => {
     dispatch(fetchProductsRequest());
