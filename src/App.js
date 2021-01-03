@@ -1,5 +1,8 @@
-import React, {Suspense, lazy} from 'react';
+import React, {Suspense, lazy, useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+
+import {signInUserRequest} from './redux/root.actions';
 import ErrorBoundary from './components/pages/error-boundary/ErrorBoundary.component';
 import NotFound from './components/pages/not-found/NotFound.component';
 import './app.style.scss';
@@ -10,6 +13,18 @@ const Product = lazy(() => import('./components/pages/product/Product.component'
 const Login = lazy(() => import('./components/pages/auth/login/Login.component'));
 
 const App = () => {
+  const dispatch = useDispatch();
+  const [isUserLoggedInFromLocalStorage] = useState(
+    () => JSON.parse(window.localStorage.getItem('isUserLoggedIn')) ?? null
+  );
+  const [loginDetails] = useState(() => window.localStorage.getItem('loginDetails') ?? {});
+
+  useEffect(() => {
+    if (isUserLoggedInFromLocalStorage) {
+      dispatch(signInUserRequest(JSON.parse(loginDetails)));
+    }
+  }, [dispatch, isUserLoggedInFromLocalStorage, loginDetails]);
+
   return (
     <>
       <a href="#main" id="skipToMainContent">

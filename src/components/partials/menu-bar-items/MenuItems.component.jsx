@@ -1,12 +1,25 @@
-import React, {forwardRef, useRef, useImperativeHandle} from 'react';
-import {NavLink} from 'react-router-dom';
+import React, {forwardRef, useState, useRef, useImperativeHandle} from 'react';
+import {NavLink, useHistory} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+
 import {useUniqueIds} from '../../../hooks/useUniqueIds';
+import {signOutUserRequest} from '../../../redux/root.actions';
+import {selectUser} from '../../../redux/user/user.selector';
+import Button from '../button/Button.component';
 import Input from '../input/Input.component';
 import './menu-items.style.scss';
 
-const MenuItems = forwardRef((prop, ref) => {
+const MenuItems = forwardRef((props, ref) => {
+  const [isUserLoggedInFromLocalStorage] = useState(
+    () => JSON.parse(window.localStorage.getItem('isUserLoggedIn')) ?? null
+  );
   const [searchInputId] = useUniqueIds(1);
   const menuItemRef = useRef(null);
+  const history = useHistory();
+  const dispatch = useDispatch();
+  // const isUserLoggedIn = useSelector(selectIsUserLoggedIn);
+  const user = useSelector(selectUser);
 
   useImperativeHandle(ref, () => ({
     showMenuItem: () => {
@@ -44,6 +57,13 @@ const MenuItems = forwardRef((prop, ref) => {
         </li>
       </ul>
 
+      {user && (
+        <div className="user-profile">
+          <img src={`${process.env.PUBLIC_URL}/assets/images/avatar.svg`} alt="" />
+          <p>{user?.name}</p>
+        </div>
+      )}
+
       <div className="currency-wrapper">
         <h3>Currency</h3>
         <div>
@@ -64,6 +84,16 @@ const MenuItems = forwardRef((prop, ref) => {
               <img src={`${process.env.PUBLIC_URL}/assets/images/gbp.png`} alt="" /> GBP
             </span>
           </div>
+
+          <Button
+            className={`log-btn ${isUserLoggedInFromLocalStorage ? 'logout-btn' : 'login-btn'}`}
+            onClick={async () => {
+              await dispatch(signOutUserRequest());
+              history.push('/login');
+            }}
+          >
+            {isUserLoggedInFromLocalStorage ? 'Logout' : 'Login'}
+          </Button>
         </div>
       </div>
     </div>
