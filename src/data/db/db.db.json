@@ -92,7 +92,8 @@
     {
       "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
       "id": 1,
-      "name": "iphone 5",
+      "name": "Toffee tea",
+      "image": "https://i.ibb.co/g47Xk33/vinkash-tea.jpg",
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
@@ -101,7 +102,8 @@
     {
       "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
       "id": 2,
-      "name": "iphone 6",
+      "name": "Jasmine Tea",
+      "image": "https://i.ibb.co/Y2LJr9T/jasmine-tea.jpg",
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
@@ -110,7 +112,8 @@
     {
       "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
       "id": 3,
-      "name": "iphone 7",
+      "name": "Mint Tea",
+      "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg",
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
@@ -119,7 +122,8 @@
     {
       "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
       "id": 4,
-      "name": "iphone 8",
+      "name": "Lemon Tea",
+      "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg",
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
