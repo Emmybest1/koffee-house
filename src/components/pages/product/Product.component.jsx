@@ -31,7 +31,7 @@ const Product = ({match}) => {
     let timeout;
     timeout = setTimeout(() => {
       setShouldMountSubscriptionModal(true);
-    }, 3000);
+    }, 5000);
     return () => {
       clearTimeout(timeout);
     };
