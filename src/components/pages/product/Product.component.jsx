@@ -39,7 +39,7 @@ const Product = ({match}) => {
 
   return product && Object.entries(product).length ? (
     <>
-      <Header className="container product-component-header" itemsInCart={1} />
+      <Header className="container product-component-header" />
       <Main>
         <div className="container shop-items-container">
           <ul className="product-container">

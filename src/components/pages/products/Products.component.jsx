@@ -36,7 +36,7 @@ const Products = () => {
 
   return (
     <>
-      <Header itemsInCart={1} />
+      <Header />
       <Main className="products-main">
         <img src={`${process.env.PUBLIC_URL}/assets/images/shop-bg.jpg`} alt="" />
         <h2>Products</h2>
