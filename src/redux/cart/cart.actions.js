@@ -49,9 +49,12 @@ export const postItemToCartFailure = (payload) => ({
 
 export const postItemToCartRequest = (data) => (dispatch) => {
   dispatch(postItemToCartRequestStarted());
-  api.post('http://localhost:4000/cartItems').then(() => {
-    dispatch(postItemToCartSuccess(data)).catch((error) => {
+  api
+    .post(`${process.env.REACT_APP_DEV_URL}cartitems`, data)
+    .then(() => {
+      dispatch(postItemToCartSuccess(data));
+    })
+    .catch((error) => {
       dispatch(postItemToCartFailure(error.message));
     });
-  });
 };

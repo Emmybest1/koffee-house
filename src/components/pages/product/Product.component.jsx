@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 
-import {fetchProductRequest} from '../../../redux/root.actions';
+import {fetchProductRequest, postItemToCartRequest} from '../../../redux/root.actions';
 import {selectIsLoading, selectError, selectProduct} from '../../../redux/product/product.selector';
+import {selectUser} from '../../../redux/user/user.selector';
 import ApiErrorAlert from '../../partials/modals/api-error-alert/ApiErrorAlert.component';
 import Loader from '../../partials/loader/Loader.component';
 import SubscriptionModal from '../../partials/modals/subscription/Subscription.component';
@@ -20,6 +21,7 @@ const Product = ({match}) => {
   const productFetchingIsLoading = useSelector(selectIsLoading);
   const productFetchingError = useSelector(selectError);
   const product = useSelector(selectProduct);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(fetchProductRequest(match.params.productId));
@@ -67,7 +69,22 @@ const Product = ({match}) => {
                 </div>
               </section>
 
-              <Button className="add-to-cart-btn" onClick={() => history.push(`/cart`)}>
+              <Button
+                className="add-to-cart-btn"
+                onClick={async () => {
+                  const itemToPostToCart = {
+                    'api-key': user['api-key'],
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    currency: 'dollars',
+                    'shipping-address': 'xxxxx-xxxx',
+                    quantity,
+                  };
+                  await dispatch(postItemToCartRequest(itemToPostToCart));
+                  history.push(`/cart`);
+                }}
+              >
                 <i className="fa fa-cart-plus"></i> Add to Cart
               </Button>
             </li>

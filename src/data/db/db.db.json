@@ -58,7 +58,6 @@
       "price": "300.50",
       "image": "https://i.ibb.co/G0tqfSJ/guludash-tea.jpg"
     },
-
     {
       "id": "tncqxdd03",
       "name": "Jasmine Tea",
@@ -97,7 +96,7 @@
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
-      "shipping address": "Tallinn Estonia 11293"
+      "shipping-address": "Tallinn Estonia 11293"
     },
     {
       "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
@@ -107,7 +106,7 @@
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
-      "shipping address": "Tallinn Estonia 11293"
+      "shipping-address": "Tallinn Estonia 11293"
     },
     {
       "api-key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
@@ -117,7 +116,7 @@
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
-      "shipping address": "Tallinn Estonia 11293"
+      "shipping-address": "Tallinn Estonia 11293"
     },
     {
       "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
@@ -127,7 +126,26 @@
       "price": "2000",
       "currency": "dollars",
       "quantity": "2",
-      "shipping address": "Tallinn Estonia 11293"
+      "shipping-address": "Tallinn Estonia 11293"
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "api-key": "jk_test_5eC39HqLyjWDarjtT1zdp7dc",
+      "name": "Dried Pure Instant Coffee",
+      "price": "300.00",
+      "image": "https://i.ibb.co/n1tPxk9/item-2.webp",
+      "currency": "dollars",
+      "shipping-address": "xxxxx-xxxx",
+      "quantity": 1,
+      "id": 8
     }
   ]
 }
