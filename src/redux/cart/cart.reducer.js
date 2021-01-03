@@ -17,7 +17,7 @@ export const reducer = (state = initialState, action) => {
       return {...state, isLoading: true};
 
     case types.FETCH_CART_ITEMS_SUCCESS:
-      return {...state, fetchedCartItems: action.payload};
+      return {...state, isLoading: false, fetchedCartItems: action.payload};
 
     case types.FETCH_CART_ITEMS_FAILURE:
       return {...state, error: action.payload};

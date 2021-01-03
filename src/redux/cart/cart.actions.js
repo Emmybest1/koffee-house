@@ -21,7 +21,7 @@ export const fetchCartItemsFailure = (payload) => ({
 export const fetchCartItemsRequest = (apiKey) => (dispatch) => {
   dispatch(fetchCartItemsRequestStarted());
   api
-    .get(`${process.env.REACT_APP_DEV_URL}cartItems?api-key=${apiKey}`)
+    .get(`${process.env.REACT_APP_DEV_URL}cartitems?api-key=${apiKey}`)
     .then((res) => {
       dispatch(fetchCartItemsSuccess(res.data));
     })

@@ -3,66 +3,63 @@ import PropTypes from 'prop-types';
 import './loader.style.scss';
 
 const Loader = ({isLoading}) => {
-  const [shouldDisplayLoader, setShouldDisplayLoader] = useState(false);
-  const [fetchStarted, setFetchStarted] = useState(false);
-  const [isDoneLoading, setIsDoneLoading] = useState(false);
-
-  /***
-   *@useEffect : this enables the display of the loader after few seconds because some api are extremely fast
+  /****
+   *
+   * @shouldStartLoading {shouldStartLoading}: this state is in charge of telling when the loader starts
    */
-  useEffect(() => {
-    let timeout;
-    timeout = setTimeout(() => {
-      if (isLoading) {
-        setShouldDisplayLoader(true);
-        setFetchStarted(true);
-      } else if (!isLoading && shouldDisplayLoader) {
-        setShouldDisplayLoader(false);
-      }
-    }, 2000);
-    return () => {
-      clearTimeout(timeout);
-      setShouldDisplayLoader(false);
-    };
-  }, [isLoading, shouldDisplayLoader]);
-
-  /***
-   * @useEffect : this checks if loading is done
+  const [shouldStartLoading, setShouldStartLoading] = useState(false);
+  /****
+   *
+   * @useState {isDoneLoading}: this state is in charge of telling when the loader ends
    */
-  useEffect(() => {
-    if (!isLoading && !shouldDisplayLoader && fetchStarted) {
-      setIsDoneLoading(true);
-      fetchStarted(false);
+  const [isDoneLoading, setIsDoneLoading] = useState(() => {
+    if (!isLoading) {
+      return true;
     }
-
-    return;
-  }, [isLoading, shouldDisplayLoader, fetchStarted]);
+    return false;
+  });
 
   /****
-   * @useEffect : after some secods, reset is done loading to false
+   *
+   * @useEffect : this useEffect trys to give the api or resource server the benefit of doubt(spontaneosity)
+   * for 1 seconds and if the resources is not ready, then the loader shows up
    */
   useEffect(() => {
-    let timeout;
+    const timeOut = setTimeout(() => {
+      isLoading ? setShouldStartLoading(true) : setShouldStartLoading(false);
+      !isLoading && setIsDoneLoading(true);
+    }, 1000);
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, [isLoading]);
 
-    timeout = setTimeout(() => {
+  /****
+   *
+   * @useEffect : this useEffect disables the isDoneLoading notifier after a period of time
+   */
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
       if (isDoneLoading) {
         setIsDoneLoading(false);
       }
-    }, 2000);
-    clearTimeout(timeout);
+      return;
+    }, 1000);
 
-    return () => {};
+    return () => {
+      clearTimeout(timeOut);
+    };
   }, [isDoneLoading]);
 
   return (
     <div className="loader-container">
       {isDoneLoading && <p>Finished loading</p>}
-      {shouldDisplayLoader && (
+      {shouldStartLoading ? (
         <div className="loader-container-content__wrapper">
           <img src={`${process.env.PUBLIC_URL}/assets/images/loader.gif`} alt="" />
           <p>Loading...</p>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
